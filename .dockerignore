@@ -1,0 +1,14 @@
+.git
+.env
+.env.*
+.local
+.next
+.gateway
+node_modules
+.vercel
+*.zip
+*.tsbuildinfo
+output
+public
+docs
+*.md

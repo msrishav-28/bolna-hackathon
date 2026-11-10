@@ -1,0 +1,19 @@
+FROM node:24-bookworm-slim AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY gateway ./gateway
+COPY src/lib/voice ./src/lib/voice
+COPY src/lib/reasoning-config.mjs ./src/lib/reasoning-config.mjs
+RUN npm run gateway:build
+
+FROM node:24-bookworm-slim AS runtime
+WORKDIR /app
+ENV NODE_ENV=production
+ENV SPEECH_GATEWAY_HOST=0.0.0.0
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev --ignore-scripts && npm cache clean --force
+COPY --from=build /app/.gateway ./.gateway
+USER node
+EXPOSE 3015
+CMD ["node", ".gateway/gateway/main.js"]

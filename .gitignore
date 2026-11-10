@@ -1,0 +1,52 @@
+# v0 sandbox internal files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.design-cache/
+.v0-trash/
+.vercel/
+
+# Environment variables
+.env*.local
+
+# Common ignores
+node_modules
+.next/
+.gateway/
+supabase/.temp/
+*.zip
+.DS_Store
+# Local review artifacts and development state
+.local/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+
+# Local engineering notes excluded from publication
+AGENTS.md
+design.md
+GNANI_REFERENCE.md
+guide.md
+plan.md
+TECH_SPEC.md
+tracker.md
+Samvaad_Product_and_Build_Brief.md
+Samvaad_Technical_Build_Spec.md
+docs/decisions.md
+docs/practice-format-proposal.md
+docs/frontend-handoff.md
+docs/frontend-studio.md
+docs/gnani-integration-proposal.md
+docs/gnani-team-questions.md
+docs/research.md
+docs/setup.md
+docs/validation.md
+public/fonts/*.md
+output/illustrations/*.md
+
+.vercel
+
+# Founder-excluded local source artwork
+/SVG/

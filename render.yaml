@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: samvaad-voice
+    runtime: docker
+    dockerfilePath: ./Dockerfile.gateway
+    plan: free
+    healthCheckPath: /health
+    autoDeployTrigger: off
+    envVars:
+      - key: SPEECH_GATEWAY_HOST
+        value: 0.0.0.0
+      - key: REASONING_PROVIDER
+        value: groq
+      - key: APP_ORIGIN
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: GNANI_SPEECH_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
